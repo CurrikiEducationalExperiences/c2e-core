@@ -4,7 +4,8 @@
   "description": "C2E core library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "c2e" : "node ./built/index.js"
   },
   "repository": {
     "type": "git",
