@@ -1,7 +1,7 @@
 import { C2eResourceCollection } from "./C2eResourceCollection";
 import { C2eModelCollection } from './C2eModelCollection';
 import { C2eSourceCode } from "./C2eSourceCode";
-import { C2eComponentCollection } from "./C2eComponentCollection";
+import C2eComponentCollection from "./C2eComponentCollection";
 
 export interface C2eContainer {
     c2eResourceCollection: C2eResourceCollection;
