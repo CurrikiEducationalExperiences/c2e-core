@@ -1,8 +1,9 @@
 import { C2e } from "../interfaces/C2e";
 import { C2eContainer } from "../interfaces/C2eContainer";
 import { C2eMetadata } from "../interfaces/C2eMetadata";
+import JsonLinkedData from "./JsonLinkedData";
 
-export class C2eLd implements C2e {
+export class C2eLd extends JsonLinkedData implements C2e {
     identifier: string;
     type: string;
     name: string;
@@ -10,26 +11,12 @@ export class C2eLd implements C2e {
     c2eContainer: C2eContainer;
 
     constructor(identifier: string, typ: string, name: string, c2eMetadata: C2eMetadata, c2eContainer: C2eContainer) {
+        super(identifier, typ);
         this.identifier = identifier;
         this.type = typ;
         this.name = name;
         this.c2eMetadata = c2eMetadata;
         this.c2eContainer = c2eContainer;
-    }
-
-    setIdentifier(identifier: string): void {
-        this.identifier = identifier;
-    }
-
-    getIdentifier(): string | undefined {
-        return this.identifier;
-    }
-
-    setType(type: string): void {
-        this.type = type;
-    }
-    getType(): string | undefined {
-        return this.type;
     }
 
     setName(name: string): void {
