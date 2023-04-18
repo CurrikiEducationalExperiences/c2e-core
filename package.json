@@ -1,0 +1,22 @@
+{
+  "name": "c2e-core",
+  "version": "1.0.0",
+  "description": "C2E core library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CurrikiEducationalExperiences/c2e-core.git"
+  },
+  "keywords": [
+    "C2E"
+  ],
+  "author": "Waqar Muneer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CurrikiEducationalExperiences/c2e-core/issues"
+  },
+  "homepage": "https://github.com/CurrikiEducationalExperiences/c2e-core#readme"
+}
