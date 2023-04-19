@@ -2,7 +2,7 @@ import { C2eContainer } from "../interfaces/C2eContainer";
 import C2eContentTypeCollection from "../interfaces/C2eContentTypeCollection";
 import C2eResourceCollection from "../interfaces/C2eResourceCollection";
 import C2eEmbedCollection from "../interfaces/C2eEmbedCollection";
-import { C2eSourceCode } from "../interfaces/C2eSourceCode";
+import C2eSourceCode from "../interfaces/C2eSourceCode";
 
 class C2eContainLd implements C2eContainer {
     c2eResourceCollection: C2eResourceCollection;

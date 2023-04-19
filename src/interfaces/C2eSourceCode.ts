@@ -1,11 +1,14 @@
 import JsonLd from "./JsonLd";
+import C2eDigitalDocument from "./C2eDigitalDocument";
 
-export interface C2eSourceCode extends JsonLd {
-    scriptUrl: string;
-    htmlUrl: string;
+interface C2eSourceCode extends JsonLd {
+    script: C2eDigitalDocument;
+    html: C2eDigitalDocument;
 
-    setScriptUrl(scriptUrl: string): void;
-    getScriptUrl(): string | undefined;
-    setHtmlUrl(htmlUrl: string): void;
-    getHtmlUrl(): string|undefined
+    setScript(script: C2eDigitalDocument): void;
+    getScript(): C2eDigitalDocument;
+    setHtml(html: C2eDigitalDocument): void;
+    getHtml(): C2eDigitalDocument;
 }
+
+export default C2eSourceCode;

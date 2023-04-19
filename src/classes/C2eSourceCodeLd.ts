@@ -1,3 +1,30 @@
-import { C2eSourceCode } from "../interfaces/C2eSourceCode";
+import C2eSourceCode from "../interfaces/C2eSourceCode";
+import JsonLinkedData from "./JsonLinkedData";
+import C2eDigitalDocument from "../interfaces/C2eDigitalDocument";
 
-class C2eSourceCodeLd implements C2eSourceCode
+class C2eSourceCodeLd extends JsonLinkedData implements C2eSourceCode {
+    script: C2eDigitalDocument;
+    html: C2eDigitalDocument;
+
+    constructor(identifier: string, type: string, script: C2eDigitalDocument, html: C2eDigitalDocument) {
+        super(identifier, type);
+        this.script = script;
+        this.html = html;
+    }
+
+    setScript(script: C2eDigitalDocument): void {
+        this.script = script;
+    }
+
+    getScript(): C2eDigitalDocument {
+        return this.script;
+    }
+
+    setHtml(html: C2eDigitalDocument): void {
+        this.html = html;
+    }
+
+    getHtml(): C2eDigitalDocument {
+        return this.html;
+    }
+}
