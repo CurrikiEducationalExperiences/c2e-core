@@ -2,7 +2,7 @@ import C2eContentType from "../interfaces/C2eContentType";
 import C2eContentTypeAttribute from "../interfaces/C2eContentTypeAttribute";
 import JsonLinkedData from "./JsonLinkedData";
 
-export class C2eContentTypeLd extends JsonLinkedData implements C2eContentType {
+class C2eContentTypeLd extends JsonLinkedData implements C2eContentType {
     attributes: Array<C2eContentTypeAttribute>;
     relation?: string | undefined;
 
@@ -25,3 +25,5 @@ export class C2eContentTypeLd extends JsonLinkedData implements C2eContentType {
     }
 
 }
+
+export default C2eContentTypeLd;

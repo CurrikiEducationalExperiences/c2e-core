@@ -1,6 +1,6 @@
 import C2eDigitalDocument from "../interfaces/C2eDigitalDocument";
 import JsonLinkedData from "./JsonLinkedData";
-export class C2eDigitalDocumentLd extends JsonLinkedData implements C2eDigitalDocument {
+class C2eDigitalDocumentLd extends JsonLinkedData implements C2eDigitalDocument {
     url: string;
     fileFormate: string;
 
@@ -26,3 +26,5 @@ export class C2eDigitalDocumentLd extends JsonLinkedData implements C2eDigitalDo
         return this.fileFormate;
     }
 }
+
+export default C2eDigitalDocumentLd;

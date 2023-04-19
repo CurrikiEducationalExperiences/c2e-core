@@ -20,7 +20,7 @@ export default class C2eContentTypeCollectionLd extends JsonLinkedData implement
         });    
     }
 
-    getC2eContentTypes(): C2eContentType[] | undefined {
+    getC2eContentTypes(): Array<C2eContentType> | undefined {
         return this.c2eContentTypes;
     }
     

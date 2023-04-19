@@ -5,7 +5,7 @@ interface C2eContentTypeCollection extends JsonLd {
     c2eContentTypes: Array<C2eContentType>;
     addC2eContentType(c2eContentType: C2eContentType): void;
     removeC2eContentType(c2eContentType: C2eContentType): void;
-    getC2eContentTypes(): C2eContentType[] | undefined;
+    getC2eContentTypes(): Array<C2eContentType> | undefined;
 
 }
 
