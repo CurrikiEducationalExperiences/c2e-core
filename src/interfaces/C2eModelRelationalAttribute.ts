@@ -1,4 +1,4 @@
-export interface C2eModelRelationalAttribute {
+interface C2eContentTypeRelationalAttribute {
     hasOne: string;
     hasMany: string;
     belongsTo: string;
@@ -10,3 +10,5 @@ export interface C2eModelRelationalAttribute {
     setBelongsTo(belongsTo: string): void;
     getBelongsTo(): string | undefined;
 }
+
+export default C2eContentTypeRelationalAttribute;
