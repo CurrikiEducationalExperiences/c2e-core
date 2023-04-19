@@ -5,6 +5,6 @@ import C2eSourceCode from "./C2eSourceCode";
 export interface C2eContainer {
     c2eResourceCollection: C2eResourceCollection;
     c2eContentTypeCollection: C2eContentTypeCollection;
-    c2eEmbedCollection: C2eEmbedCollection;
-    c2eSourceCode: C2eSourceCode;
+    c2eEmbedCollection?: C2eEmbedCollection;
+    c2eSourceCode?: C2eSourceCode;
 }
