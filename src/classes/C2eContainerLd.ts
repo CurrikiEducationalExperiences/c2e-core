@@ -7,11 +7,11 @@ import C2eSourceCode from "../interfaces/C2eSourceCode";
 class C2eContainLd implements C2eContainer {
     c2eResourceCollection: C2eResourceCollection;
     c2eContentTypeCollection: C2eContentTypeCollection;
-    c2eEmbedCollection: C2eEmbedCollection;
-    c2eSourceCode: C2eSourceCode;
+    c2eEmbedCollection?: C2eEmbedCollection | undefined;
+    c2eSourceCode?: C2eSourceCode | undefined;
     
     // constructor
-    constructor(c2eResourceCollection: C2eResourceCollection, c2eContentTypeCollection: C2eContentTypeCollection, c2eEmbedCollection: C2eEmbedCollection, c2eSourceCode: C2eSourceCode) {
+    constructor(c2eResourceCollection: C2eResourceCollection, c2eContentTypeCollection: C2eContentTypeCollection, c2eEmbedCollection?: C2eEmbedCollection | undefined, c2eSourceCode?: C2eSourceCode | undefined) {
         this.c2eResourceCollection = c2eResourceCollection;
         this.c2eContentTypeCollection = c2eContentTypeCollection;
         this.c2eEmbedCollection = c2eEmbedCollection;
@@ -41,7 +41,7 @@ class C2eContainLd implements C2eContainer {
         this.c2eEmbedCollection = c2eEmbedCollection;
     }
 
-    getC2eEmbedCollection(): C2eEmbedCollection {
+    getC2eEmbedCollection(): C2eEmbedCollection | undefined {
         return this.c2eEmbedCollection;
     }
 
@@ -50,7 +50,9 @@ class C2eContainLd implements C2eContainer {
         this.c2eSourceCode = c2eSourceCode;
     }
 
-    getC2eSourceCode(): C2eSourceCode {
+    getC2eSourceCode(): C2eSourceCode | undefined{
         return this.c2eSourceCode;
     }
 }
+
+export default C2eContainLd;

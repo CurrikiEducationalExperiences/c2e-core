@@ -3,7 +3,7 @@ import { C2eContainer } from "../interfaces/C2eContainer";
 import { C2eMetadata } from "../interfaces/C2eMetadata";
 import JsonLinkedData from "./JsonLinkedData";
 
-export class C2eLd extends JsonLinkedData implements C2e {
+class C2eLd extends JsonLinkedData implements C2e {
     name: string;
     c2eMetadata: C2eMetadata;
     c2eContainer: C2eContainer;
@@ -40,3 +40,5 @@ export class C2eLd extends JsonLinkedData implements C2e {
     }
     
 }
+
+export default C2eLd;
