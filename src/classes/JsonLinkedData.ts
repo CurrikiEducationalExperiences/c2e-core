@@ -25,6 +25,10 @@ class JsonLinkedData implements JsonLd {
     getType(): string | undefined {
         return this.type;
     }
+
+    toJsonLd(): string {
+        return JSON.stringify(this);
+    }
 }
 
 export default JsonLinkedData;
