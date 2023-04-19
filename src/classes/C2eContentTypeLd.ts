@@ -17,7 +17,7 @@ export class C2eContentTypeLd extends JsonLinkedData implements C2eContentType {
     }
 
     removeAttributes(c2eContentTypeAttribute: C2eContentTypeAttribute): void {
-        this.attributes = this.attributes.filter((c2eContentTypeAttributeEl) => c2eContentTypeAttributeEl.getName() !== c2eContentTypeAttribute.getName());
+        this.attributes = this.attributes.filter((c2eContentTypeAttributeItem) => c2eContentTypeAttributeItem.getName() !== c2eContentTypeAttribute.getName());
     }
 
     getAttributes(): Array<C2eContentTypeAttribute> {
