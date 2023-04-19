@@ -1,5 +1,5 @@
-import { JsonLd } from "./JsonLd";
-import { C2eDigitalDocument } from './C2eDigitalDocument';
+import JsonLd from "./JsonLd";
+import C2eDigitalDocument from './C2eDigitalDocument';
 
 export interface C2eResourceCollection extends JsonLd {
     c2eResources: C2eDigitalDocument[];

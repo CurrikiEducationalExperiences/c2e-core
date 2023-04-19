@@ -1,5 +1,5 @@
 import { C2eModelAttribute } from "./C2eModelAttribute";
-import { JsonLd } from "./JsonLd";
+import JsonLd from "./JsonLd";
 
 export interface C2eModel extends JsonLd {
     attributes: [C2eModelAttribute];

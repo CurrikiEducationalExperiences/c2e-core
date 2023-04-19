@@ -1,4 +1,4 @@
-import { JsonLd } from "./JsonLd";
+import JsonLd from "./JsonLd";
 
 export interface C2eMdLifecycleLd extends JsonLd {
     version: string;

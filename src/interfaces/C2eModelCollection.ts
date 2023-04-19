@@ -1,5 +1,5 @@
 import { C2eModel } from "./C2eModel";
-import { JsonLd } from "./JsonLd";
+import JsonLd from "./JsonLd";
 
 export interface C2eModelCollection extends JsonLd {
     c2eResources: [C2eModel];

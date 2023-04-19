@@ -1,11 +1,13 @@
-import { JsonLd } from "./JsonLd";
+import JsonLd from "./JsonLd";
 
-export interface C2eDigitalDocument extends JsonLd {
-    url: string;
-    fileFormate: string;
+interface C2eDigitalDocument extends JsonLd {
+  url: string;
+  fileFormate: string;
 
-    setUrl(url: string): void;
-    getUrl(): string;
-    setFileFormate(fileFormate: string): void;
-    getFileFormate(): string;
-  }
+  setUrl(url: string): void;
+  getUrl(): string;
+  setFileFormate(fileFormate: string): void;
+  getFileFormate(): string;
+}
+
+export default C2eDigitalDocument;

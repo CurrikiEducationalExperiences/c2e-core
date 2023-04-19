@@ -1,4 +1,4 @@
-import { JsonLd } from "./JsonLd";
+import JsonLd from "./JsonLd";
 
 export interface C2ePublisherLd extends JsonLd {
     

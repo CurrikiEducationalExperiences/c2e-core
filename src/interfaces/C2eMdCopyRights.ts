@@ -1,6 +1,6 @@
-import { C2eDigitalDocument } from "./C2eDigitalDocument";
+import C2eDigitalDocument from "./C2eDigitalDocument";
 import { C2ePersona } from "./C2ePersona";
-import { JsonLd } from "./JsonLd";
+import JsonLd from "./JsonLd";
 
 export interface C2eMdCopyRights extends JsonLd {
     license: C2eDigitalDocument;

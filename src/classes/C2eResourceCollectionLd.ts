@@ -1,4 +1,4 @@
-import { C2eDigitalDocument } from "../interfaces/C2eDigitalDocument";
+import C2eDigitalDocument from "../interfaces/C2eDigitalDocument";
 import { C2eResourceCollection } from "../interfaces/C2eResourceCollection";
 import { C2eDigitalDocumentLd } from "./C2eDigitalDocumentLd";
 
