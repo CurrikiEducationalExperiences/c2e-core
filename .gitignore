@@ -38,6 +38,6 @@ typings/
 lib/*.js
 test/*.js
 *.map
-dist/*.*
-build/*.*
-built/*.*
+dist/**/*.*
+build/**/*.*
+built/**/*.*
