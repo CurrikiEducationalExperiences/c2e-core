@@ -4,16 +4,12 @@ import { C2eMetadata } from "../interfaces/C2eMetadata";
 import JsonLinkedData from "./JsonLinkedData";
 
 export class C2eLd extends JsonLinkedData implements C2e {
-    identifier: string;
-    type: string;
     name: string;
     c2eMetadata: C2eMetadata;
     c2eContainer: C2eContainer;
 
     constructor(identifier: string, typ: string, name: string, c2eMetadata: C2eMetadata, c2eContainer: C2eContainer) {
         super(identifier, typ);
-        this.identifier = identifier;
-        this.type = typ;
         this.name = name;
         this.c2eMetadata = c2eMetadata;
         this.c2eContainer = c2eContainer;
