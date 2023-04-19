@@ -1,5 +1,5 @@
 import C2eDigitalDocument from "../interfaces/C2eDigitalDocument";
-import { C2eResourceCollection } from "../interfaces/C2eResourceCollection";
+import C2eResourceCollection from "../interfaces/C2eResourceCollection";
 import { C2eDigitalDocumentLd } from "./C2eDigitalDocumentLd";
 
 export class C2eResourceCollectionLd implements C2eResourceCollection {
@@ -29,7 +29,7 @@ export class C2eResourceCollectionLd implements C2eResourceCollection {
     }
   
     removeC2eResource(c2eDigitalDocument: C2eDigitalDocument): void {
-      this.c2eResources = this.c2eResources.filter(resource => resource !== c2eDigitalDocument);
+      this.c2eResources = this.c2eResources.filter(resource => resource.getIdentifier() !== c2eDigitalDocument.getIdentifier());
     }
   
     getC2eResources(): C2eDigitalDocument[] | undefined {
