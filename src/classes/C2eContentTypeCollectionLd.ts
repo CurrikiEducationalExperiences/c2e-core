@@ -3,11 +3,10 @@ import C2eContentTypeCollection from "../interfaces/C2eContentTypeCollection";
 import JsonLinkedData from "./JsonLinkedData";
 
 export default class C2eContentTypeCollectionLd extends JsonLinkedData implements C2eContentTypeCollection {
-    c2eContentTypes: Array<C2eContentType>;
+    c2eContentTypes: Array<C2eContentType> = [];
 
-    constructor(identifier: string, type: string, c2eContentTypes: Array<C2eContentType>) {
+    constructor(identifier: string, type: string) {
         super(identifier, type);
-        this.c2eContentTypes = c2eContentTypes;
     }
 
     addC2eContentType(c2eContentType: C2eContentType): void {

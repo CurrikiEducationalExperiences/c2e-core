@@ -1,6 +1,6 @@
 import C2eContentTypeAttribute from "../interfaces/C2eContentTypeAttribute";
 
-export class C2eContentTypeAttributeLd implements C2eContentTypeAttribute {
+export default class C2eContentTypeAttributeLd implements C2eContentTypeAttribute {
     name: string;
     type: string;
 

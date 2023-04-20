@@ -3,11 +3,10 @@ import C2eResourceCollection from "../interfaces/C2eResourceCollection";
 import JsonLinkedData from "./JsonLinkedData";
 
 export default class C2eResourceCollectionLd extends JsonLinkedData implements C2eResourceCollection {
-    c2eResources: Array<C2eDigitalDocument>;
+    c2eResources: Array<C2eDigitalDocument> = [];
 
-    constructor(identifier: string, type: string, c2eResource: C2eDigitalDocument) {
+    constructor(identifier: string, type: string) {
       super(identifier, type);
-      this.c2eResources = [c2eResource];
     }
     
     addC2eResource(c2eDigitalDocument: C2eDigitalDocument): void {

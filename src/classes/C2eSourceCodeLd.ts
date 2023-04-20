@@ -6,7 +6,7 @@ class C2eSourceCodeLd extends JsonLinkedData implements C2eSourceCode {
     script: C2eDigitalDocument;
     html: C2eDigitalDocument;
 
-    constructor(identifier: string, type: string, script: C2eDigitalDocument, html: C2eDigitalDocument) {
+    constructor(identifier: string, type: string, html: C2eDigitalDocument, script: C2eDigitalDocument) {
         super(identifier, type);
         this.script = script;
         this.html = html;
@@ -28,3 +28,5 @@ class C2eSourceCodeLd extends JsonLinkedData implements C2eSourceCode {
         return this.html;
     }
 }
+
+export default C2eSourceCodeLd;

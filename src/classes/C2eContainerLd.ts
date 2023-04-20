@@ -11,7 +11,7 @@ class C2eContainLd implements C2eContainer {
     c2eSourceCode?: C2eSourceCode | undefined;
     
     // constructor
-    constructor(c2eResourceCollection: C2eResourceCollection, c2eContentTypeCollection: C2eContentTypeCollection, c2eEmbedCollection?: C2eEmbedCollection | undefined, c2eSourceCode?: C2eSourceCode | undefined) {
+    constructor(c2eResourceCollection: C2eResourceCollection, c2eContentTypeCollection: C2eContentTypeCollection, c2eSourceCode?: C2eSourceCode | undefined, c2eEmbedCollection?: C2eEmbedCollection | undefined) {
         this.c2eResourceCollection = c2eResourceCollection;
         this.c2eContentTypeCollection = c2eContentTypeCollection;
         this.c2eEmbedCollection = c2eEmbedCollection;
