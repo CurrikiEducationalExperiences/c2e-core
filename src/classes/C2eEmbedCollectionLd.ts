@@ -18,7 +18,7 @@ class C2eEmbedCollectionLd extends JsonLinkedData implements C2eEmbedCollection 
         this.c2eEmbeds = this.c2eEmbeds.filter((c2eEmbedItem) => c2eEmbedItem.getIdentifier() !== c2eEmbed.getIdentifier());
     }
 
-    getC2eEmbeds(): C2eEmbed[] | undefined {
+    getC2eEmbeds(): Array<C2eEmbed> {
         return this.c2eEmbeds;
     }
 }

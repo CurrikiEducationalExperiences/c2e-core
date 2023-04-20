@@ -6,7 +6,7 @@ interface C2eEmbedCollection extends JsonLd {
 
     addC2eEmbed(c2eEmbed: C2eEmbed): void;
     removeC2eEmbed(c2eEmbed: C2eEmbed): void;
-    getC2eEmbeds(): C2eEmbed[] | undefined
+    getC2eEmbeds(): Array<C2eEmbed>
 }
 
 export default C2eEmbedCollection;
