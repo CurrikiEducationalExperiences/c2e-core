@@ -1,10 +1,11 @@
-export interface C2eMdGeneral {
+export default interface C2eMdGeneral {
     title: string;
     description: string;
-    keywords: [string];
+    keywords: Array<string>;
 
     setDescribtion(description: string): void;
     getDescribtion(): string | undefined;
-    addKeyword(keywords: [string]): void;
-    getKeywords(): string[] | undefined;
+    addKeyword(keyword: string): void;
+    removeKeyword(keyword: string): void;
+    getKeywords(): Array<string> | undefined;
 }
