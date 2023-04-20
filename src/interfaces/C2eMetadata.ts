@@ -8,20 +8,26 @@ export interface C2eMetadata {
     schemaVersion: string;
     general: C2eMdGeneral;
     author: C2ePersona;
-    publisher: C2ePublisherLd;
-    lifecycle: C2eMdLifecycleLd;
     copyrights: C2eMdCopyrights;
+    publisher: C2ePublisherLd | undefined;
+    lifecycle: C2eMdLifecycleLd | undefined;
 
     setSchemaVersion(schemaVersion: string): void;
-    getSchemaVersion(): string | undefined;
+    getSchemaVersion(): string;
+    
+    setC2eMdGeneralLd(general: C2eMdGeneral): void;
+    getC2eMdGeneralLd(): C2eMdGeneral;
+
+    setC2eAuthorLd(author: C2ePersona): void;
+    getC2eAuthorLd(): C2ePersona;
+
     setC2eMdCopyrightsLd(copyrights: C2eMdCopyrights): void;
-    getC2eMdCopyrightsLd(): C2eMdCopyrights | undefined;
-    setC2eLifecycleLd(lifecycle: C2eMdLifecycleLd): void;
-    getC2eLifecycleLd(): C2eMdLifecycleLd | undefined
+    getC2eMdCopyrightsLd(): C2eMdCopyrights;
+    
     setC2ePublisherLd(publisher: C2ePublisherLd): void;
     getC2ePublisherLd(): C2ePublisherLd | undefined;
-    setC2eAuthorLd(author: C2ePersona): void;
-    getC2eAuthorLd(): C2ePersona | undefined;
-    setC2eMdGeneralLd(general: C2eMdGeneral): void;
-    getC2eMdGeneralLd(): C2eMdGeneral | undefined;
+
+    setC2eLifecycleLd(lifecycle: C2eMdLifecycleLd): void;
+    getC2eLifecycleLd(): C2eMdLifecycleLd | undefined
+
 }
