@@ -27,12 +27,12 @@ c2eContentTypeCollectionLd.addC2eContentType(c2eProjectContentType);
 // Define 'Playlist' Content Type
 const c2ePlaylistTitle = new C2eContentTypeAttributeLd('title', 'xsd:string');
 const c2ePlaylistDescription = new C2eContentTypeAttributeLd('description', 'xsd:string');
-const c2ePlaylistContentType = new C2eContentTypeLd('c2ens:c2eid-xxx/content-type/project', 'sdons:Dataset', [c2ePlaylistTitle, c2ePlaylistDescription]);
+const c2ePlaylistContentType = new C2eContentTypeLd('c2ens:c2eid-xxx/content-type/playlist', 'sdons:Dataset', [c2ePlaylistTitle, c2ePlaylistDescription]);
 c2eContentTypeCollectionLd.addC2eContentType(c2ePlaylistContentType);
 // Define 'Activity' Content Type
 const c2eActivityTitle = new C2eContentTypeAttributeLd('title', 'xsd:string');
 const c2eActivityDescription = new C2eContentTypeAttributeLd('description', 'xsd:string');
-const c2eActivityContentType = new C2eContentTypeLd('c2ens:c2eid-xxx/content-type/project', 'sdons:Dataset', [c2eActivityTitle, c2eActivityDescription]);
+const c2eActivityContentType = new C2eContentTypeLd('c2ens:c2eid-xxx/content-type/activity', 'sdons:Dataset', [c2eActivityTitle, c2eActivityDescription]);
 c2eContentTypeCollectionLd.addC2eContentType(c2eActivityContentType);
 
 // ==== Define C2E Reader Plugin entry point code ====
