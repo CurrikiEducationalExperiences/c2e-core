@@ -1,5 +1,5 @@
 import C2eDigitalDocument from "./C2eDigitalDocument";
-import { C2ePersona } from "./C2ePersona";
+import C2ePersona from "./C2ePersona";
 import JsonLd from "./JsonLd";
 
 interface C2eMdCopyrights extends JsonLd {
