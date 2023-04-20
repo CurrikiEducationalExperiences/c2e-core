@@ -1,9 +1,9 @@
 // create a new class name C2eMetadata which implements metadata interface
 import C2eMdCopyrights from "../interfaces/C2eMdCopyrights";
-import { C2eMdGeneral } from "../interfaces/C2eMdGeneral";
+import C2eMdGeneral from "../interfaces/C2eMdGeneral";
 import { C2eMdLifecycleLd } from "../interfaces/C2eMdLifecycleLd";
 import { C2eMetadata } from "../interfaces/C2eMetadata";
-import { C2ePersona } from "../interfaces/C2ePersona";
+import C2ePersona from "../interfaces/C2ePersona";
 import { C2ePublisherLd } from "../interfaces/C2ePublisherLd";
 import JsonLinkedData from "./JsonLinkedData";
 

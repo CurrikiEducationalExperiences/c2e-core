@@ -1,7 +1,7 @@
 import C2eMdCopyrights from "./C2eMdCopyrights";
-import { C2eMdGeneral } from "./C2eMdGeneral";
+import C2eMdGeneral from "./C2eMdGeneral";
 import { C2eMdLifecycleLd } from "./C2eMdLifecycleLd";
-import { C2ePersona } from "./C2ePersona";
+import C2ePersona from "./C2ePersona";
 import { C2ePublisherLd } from "./C2ePublisherLd";
 
 export interface C2eMetadata {
