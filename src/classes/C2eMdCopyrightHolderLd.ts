@@ -37,4 +37,13 @@ export default class C2eMdCopyrightHolderLd extends JsonLinkedData implements C2
         return this.url;
     }
 
+    toJsonLd(): Object {
+        return {
+            "@id": this.getIdentifier(),
+            "@type": this.getType(),
+            name: this.getName(),
+            email: this.getEmail(),
+            url: this.getUrl()
+        };
+    }
 }

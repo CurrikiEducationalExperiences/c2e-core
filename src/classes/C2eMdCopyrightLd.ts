@@ -54,7 +54,7 @@ export default class C2eMdCopyrightLd extends JsonLinkedData implements C2eMdCop
             "@id": this.getIdentifier(),
             "@type": this.getType(),
             license: this.getC2eLicense()?.toJsonLd(),
-            copyrightHolder: this.getCopyrightHolder(),
+            copyrightHolder: this.getCopyrightHolder()?.toJsonLd(),
             copyrightNotice: this.getCopyrightNotic(),
             copyrightYear: this.getCopyrightYear()
         };

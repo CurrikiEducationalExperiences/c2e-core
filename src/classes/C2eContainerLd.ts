@@ -57,7 +57,7 @@ class C2eContainLd implements C2eContainer {
     toJsonLd() : Array<Object> {
         return [
             {
-
+                c2eResources : this.getC2eResourceCollection().toJsonLd()
             }
         ];
     }
