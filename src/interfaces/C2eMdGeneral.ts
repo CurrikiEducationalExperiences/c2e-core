@@ -1,4 +1,6 @@
-export default interface C2eMdGeneral {
+import JsonLd from "./JsonLd";
+
+export default interface C2eMdGeneral extends JsonLd {
     title: string;
     description: string;
     keywords: Array<string>;

@@ -32,4 +32,14 @@ export default class C2eMdGeneralLd extends JsonLinkedData implements C2eMdGener
     getKeywords(): string[] | undefined {
         return this.keywords;
     }
+
+    toJsonLd(): Object {
+        return {
+            "@id": this.identifier,
+            "@type": this.type,
+            title: this.title,
+            description: this.description,
+            keywords: this.keywords,
+        };
+    }
 }
