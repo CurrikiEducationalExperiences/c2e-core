@@ -67,6 +67,15 @@ class C2eMetadataLd extends JsonLinkedData implements C2eMetadata {
     getC2eLifecycleLd(): C2eMdLifecycleLd | undefined {
         return this.lifecycle;
     }
+
+    toJsonLd(): Object {
+        return {
+            "@id": this.identifier,
+            "@type": this.type,
+            schemaVersion: this.schemaVersion,
+            general: this.general.toJsonLd(),
+        };
+    }
 }
 
 export default C2eMetadataLd;

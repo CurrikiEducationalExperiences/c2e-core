@@ -6,7 +6,7 @@ interface JsonLd {
   getIdentifier(): string | undefined;
   setType(type: string): void;
   getType(): string | undefined;
-  toJsonLd(): string;
+  toJsonLd(): Object;
 }
 
 export default JsonLd;
