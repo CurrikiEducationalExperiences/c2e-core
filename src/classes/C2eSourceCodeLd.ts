@@ -27,6 +27,17 @@ class C2eSourceCodeLd extends JsonLinkedData implements C2eSourceCode {
     getHtml(): C2eDigitalDocument {
         return this.html;
     }
+
+    toJsonLd(): Object {
+        return {
+            "@id": this.getIdentifier(),
+            "@type": this.getType(),
+            c2eSourceCode: [
+                this.getScript().toJsonLd(),
+                this.getHtml().toJsonLd(),
+            ]
+        };
+    }
 }
 
 export default C2eSourceCodeLd;

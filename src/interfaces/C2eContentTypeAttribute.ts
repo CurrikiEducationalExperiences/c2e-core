@@ -3,9 +3,10 @@ interface C2eContentTypeAttribute {
     type: string;
 
     setName(name: string): void;
-    getName(): string | undefined;
+    getName(): string;
     setType(type: string): void;
     getType(): string | undefined;
+    toJsonLd(): Object;
 }
 
 export default C2eContentTypeAttribute;

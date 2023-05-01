@@ -23,7 +23,32 @@ class C2eContentTypeLd extends JsonLinkedData implements C2eContentType {
     getAttributes(): Array<C2eContentTypeAttribute> {
         return this.attributes;
     }
+    
+    setRelation(relation: string): void {
+        this.relation = relation;
+    }
 
+    getRelation(): string | undefined {
+        return this.relation;
+    }
+
+    toJsonLd (): Object {
+
+        let contentTypeJsonLd: {[key: string]: any} = {
+            "@id": this.getIdentifier(), 
+            "@type": this.getType()
+        };
+
+        this.getAttributes().forEach((c2eContentTypeAttribute: C2eContentTypeAttribute) => {
+            contentTypeJsonLd[c2eContentTypeAttribute.getName()] = c2eContentTypeAttribute.getType();
+        });
+        
+        if (this.getRelation() !== undefined) {
+            contentTypeJsonLd.relation = this.getRelation();
+        }
+        
+        return contentTypeJsonLd;
+    }
 }
 
 export default C2eContentTypeLd;

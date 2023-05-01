@@ -16,7 +16,8 @@ import C2eMdLifecycleLd from "./classes/C2eMdLifecycleLd";
 
 // ==== Define C2E Resources ====
 const c2eResourceCollectionLd = new C2eResourceCollectionLd('c2ens:c2eResources', 'sdons:Collection');
-c2eResourceCollectionLd.addC2eResource(new C2eDigitalDocumentLd('c2ens:c2eid-xxx/resource/xxx', 'sdons:DigitalDocument', '/path/to/thumbnail.jpg', 'image/jpeg'));
+c2eResourceCollectionLd.addC2eResource(new C2eDigitalDocumentLd('c2ens:c2eid-xxx/resource/rs-1', 'sdons:DigitalDocument', '/path/to/thumbnail.jpg', 'image/jpeg'));
+c2eResourceCollectionLd.addC2eResource(new C2eDigitalDocumentLd('c2ens:c2eid-xxx/resource/rs-2', 'sdons:DigitalDocument', '/path/to/profile.jpg', 'image/jpeg'));
 
 // ==== Define C2E Content Types ====
 const c2eContentTypeCollectionLd = new C2eContentTypeCollectionLd('c2ens:c2eContentTypes', 'sdons:Collection');
@@ -39,7 +40,7 @@ c2eContentTypeCollectionLd.addC2eContentType(c2eActivityContentType);
 
 // ==== Define C2E Reader Plugin entry point code ====
 const htmlDocument = new C2eDigitalDocumentLd('c2eTerm:homepageUrl', 'sdons:SoftwareSourceCode', '/path/to/index.html', 'text/html');
-const javascriptDocument = new C2eDigitalDocumentLd('c2eTerm:homepageUrl', 'sdons:SoftwareSourceCode', '/path/to/index.js', 'application/javascript');
+const javascriptDocument = new C2eDigitalDocumentLd('c2eTerm:script', 'sdons:SoftwareSourceCode', '/path/to/index.js', 'application/javascript');
 const c2eSourceCode = new C2eSourceCodeLd('c2ens:c2eSourceCode', 'sdons:Collection', htmlDocument, javascriptDocument);
 
 //==== Define C2E Container ====

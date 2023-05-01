@@ -21,14 +21,13 @@ export default class C2eResourceCollectionLd extends JsonLinkedData implements C
       return this.c2eResources;
     }
 
-    toJsonLd(): Array<Object> {
-      return [
-        {
-          "@id": this.getIdentifier(),
-          "@type": this.getType(),
-          c2eResources: this.c2eResources.map(c2eDigitalDocument => c2eDigitalDocument.toJsonLd())
-        }
-      ];
+    toJsonLd(): Object {
+      return {
+        "@id": this.getIdentifier(),
+        "@type": this.getType(),
+        c2eResources: this.c2eResources.map(c2eDigitalDocument => c2eDigitalDocument.toJsonLd())
+      };
     }
+
   }
 

@@ -7,11 +7,11 @@ import C2eSourceCode from "../interfaces/C2eSourceCode";
 class C2eContainLd implements C2eContainer {
     c2eResourceCollection: C2eResourceCollection;
     c2eContentTypeCollection: C2eContentTypeCollection;
-    c2eEmbedCollection?: C2eEmbedCollection | undefined;
-    c2eSourceCode?: C2eSourceCode | undefined;
+    c2eEmbedCollection: C2eEmbedCollection | undefined;
+    c2eSourceCode: C2eSourceCode;
     
     // constructor
-    constructor(c2eResourceCollection: C2eResourceCollection, c2eContentTypeCollection: C2eContentTypeCollection, c2eSourceCode?: C2eSourceCode | undefined, c2eEmbedCollection?: C2eEmbedCollection | undefined) {
+    constructor(c2eResourceCollection: C2eResourceCollection, c2eContentTypeCollection: C2eContentTypeCollection, c2eSourceCode: C2eSourceCode, c2eEmbedCollection?: C2eEmbedCollection | undefined) {
         this.c2eResourceCollection = c2eResourceCollection;
         this.c2eContentTypeCollection = c2eContentTypeCollection;
         this.c2eEmbedCollection = c2eEmbedCollection;
@@ -50,16 +50,22 @@ class C2eContainLd implements C2eContainer {
         this.c2eSourceCode = c2eSourceCode;
     }
 
-    getC2eSourceCode(): C2eSourceCode | undefined{
+    getC2eSourceCode(): C2eSourceCode{
         return this.c2eSourceCode;
     }
 
-    toJsonLd() : Array<Object> {
-        return [
-            {
-                c2eResources : this.getC2eResourceCollection().toJsonLd()
-            }
+    toJsonLd() : Array<any> {
+        let c2eContainer: any = [
+            this.getC2eResourceCollection().toJsonLd(),
+            this.getC2eContentTypeCollection().toJsonLd(),
+            this.getC2eSourceCode().toJsonLd(),
         ];
+
+        if (this.getC2eEmbedCollection() !== undefined) {
+            c2eContainer.push(this.getC2eEmbedCollection()?.toJsonLd());
+        }
+
+        return c2eContainer;
     }
 }
 

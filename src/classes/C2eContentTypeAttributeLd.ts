@@ -13,7 +13,7 @@ export default class C2eContentTypeAttributeLd implements C2eContentTypeAttribut
         this.name = name;
     }
     
-    getName(): string | undefined {
+    getName(): string {
         return this.name;
     }
 
@@ -25,4 +25,10 @@ export default class C2eContentTypeAttributeLd implements C2eContentTypeAttribut
         return this.type;
     }
 
+    toJsonLd(): Object {
+        return {
+            name: this.getName(),
+            type: this.getType()
+        };
+    }
 }

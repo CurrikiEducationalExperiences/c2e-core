@@ -23,4 +23,13 @@ export default class C2eContentTypeCollectionLd extends JsonLinkedData implement
         return this.c2eContentTypes;
     }
     
+    toJsonLd() : Object {
+        return {
+            "@id": this.getIdentifier(),
+            "@type": this.getType(),
+            c2eContentTypes : this.getC2eContentTypes()?.map((c2eContentType: C2eContentType) => {
+                return c2eContentType.toJsonLd();
+            })
+        };
+    }
 }
