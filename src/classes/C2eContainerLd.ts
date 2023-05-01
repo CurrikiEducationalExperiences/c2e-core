@@ -1,4 +1,4 @@
-import { C2eContainer } from "../interfaces/C2eContainer";
+import C2eContainer from "../interfaces/C2eContainer";
 import C2eContentTypeCollection from "../interfaces/C2eContentTypeCollection";
 import C2eResourceCollection from "../interfaces/C2eResourceCollection";
 import C2eEmbedCollection from "../interfaces/C2eEmbedCollection";
@@ -52,6 +52,14 @@ class C2eContainLd implements C2eContainer {
 
     getC2eSourceCode(): C2eSourceCode | undefined{
         return this.c2eSourceCode;
+    }
+
+    toJsonLd() : Array<Object> {
+        return [
+            {
+
+            }
+        ];
     }
 }
 
