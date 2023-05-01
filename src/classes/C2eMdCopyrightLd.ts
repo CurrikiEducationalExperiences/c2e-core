@@ -1,9 +1,9 @@
 import C2eDigitalDocument from "../interfaces/C2eDigitalDocument";
-import C2eMdCopyrights from "../interfaces/C2eMdCopyrights";
+import C2eMdCopyright from "../interfaces/C2eMdCopyright";
 import C2ePersona from "../interfaces/C2ePersona";
 import JsonLinkedData from "./JsonLinkedData";
 
-export default class C2eMdCopyrightsLd extends JsonLinkedData implements C2eMdCopyrights {
+export default class C2eMdCopyrightLd extends JsonLinkedData implements C2eMdCopyright {
     license: C2eDigitalDocument;
     copyrightHolder: C2ePersona;
     copyrightNotice: string;
@@ -47,5 +47,16 @@ export default class C2eMdCopyrightsLd extends JsonLinkedData implements C2eMdCo
 
     getCopyrightYear(): string | undefined {
         return this.copyrightYear;
+    }
+
+    toJsonLd(): Object {
+        return {
+            "@id": this.getIdentifier(),
+            "@type": this.getType(),
+            license: this.getC2eLicense()?.toJsonLd(),
+            copyrightHolder: this.getCopyrightHolder(),
+            copyrightNotice: this.getCopyrightNotic(),
+            copyrightYear: this.getCopyrightYear()
+        };
     }
 }

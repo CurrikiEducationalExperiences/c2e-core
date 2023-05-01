@@ -2,7 +2,7 @@ import C2eDigitalDocument from "./C2eDigitalDocument";
 import C2ePersona from "./C2ePersona";
 import JsonLd from "./JsonLd";
 
-interface C2eMdCopyrights extends JsonLd {
+interface C2eMdCopyright extends JsonLd {
     license: C2eDigitalDocument;
     copyrightHolder: C2ePersona;
     copyrightNotice: string;
@@ -19,4 +19,4 @@ interface C2eMdCopyrights extends JsonLd {
         
 }
 
-export default C2eMdCopyrights;
+export default C2eMdCopyright;

@@ -25,6 +25,15 @@ class C2eDigitalDocumentLd extends JsonLinkedData implements C2eDigitalDocument 
     getFileFormate(): string {
         return this.fileFormate;
     }
+
+    toJsonLd(): Object {
+        return {
+            "@id": this.getIdentifier(),
+            "@type": this.getType(),
+            url: this.getUrl(),
+            fileFormate: this.getFileFormate(),
+        };
+    }
 }
 
 export default C2eDigitalDocumentLd;

@@ -1,16 +1,15 @@
-import C2eMdCopyrights from "./C2eMdCopyrights";
+import C2eMdCopyright from "./C2eMdCopyright";
 import C2eMdGeneral from "./C2eMdGeneral";
-import { C2eMdLifecycleLd } from "./C2eMdLifecycleLd";
+import C2eMdLifecycleLd from "./C2eMdLifecycleLd";
 import C2ePersona from "./C2ePersona";
-import { C2ePublisherLd } from "./C2ePublisherLd";
 import JsonLd from "./JsonLd";
 
-export interface C2eMetadata extends JsonLd {
+export default interface C2eMetadata extends JsonLd {
     schemaVersion: string;
     general: C2eMdGeneral;
     author: C2ePersona;
-    copyrights: C2eMdCopyrights;
-    publisher: C2ePublisherLd | undefined;
+    copyright: C2eMdCopyright;
+    publisher: C2ePersona | undefined;
     lifecycle: C2eMdLifecycleLd | undefined;
 
     setSchemaVersion(schemaVersion: string): void;
@@ -22,11 +21,11 @@ export interface C2eMetadata extends JsonLd {
     setC2eAuthorLd(author: C2ePersona): void;
     getC2eAuthorLd(): C2ePersona;
 
-    setC2eMdCopyrightsLd(copyrights: C2eMdCopyrights): void;
-    getC2eMdCopyrightsLd(): C2eMdCopyrights;
+    setC2eMdCopyrightLd(copyrights: C2eMdCopyright): void;
+    getC2eMdCopyrightLd(): C2eMdCopyright;
     
-    setC2ePublisherLd(publisher: C2ePublisherLd): void;
-    getC2ePublisherLd(): C2ePublisherLd | undefined;
+    setC2ePublisherLd(publisher: C2ePersona): void;
+    getC2ePublisherLd(): C2ePersona | undefined;
 
     setC2eLifecycleLd(lifecycle: C2eMdLifecycleLd): void;
     getC2eLifecycleLd(): C2eMdLifecycleLd | undefined

@@ -1,5 +1,5 @@
 import { C2eContainer } from "./C2eContainer";
-import { C2eMetadata } from "./C2eMetadata";
+import C2eMetadata from "./C2eMetadata";
 import JsonLd from "./JsonLd";
 
 export interface C2e extends JsonLd {

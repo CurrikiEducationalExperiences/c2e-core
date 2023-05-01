@@ -1,7 +1,7 @@
 import C2ePersona from '../interfaces/C2ePersona';
 import JsonLinkedData from './JsonLinkedData';
 
-export default class C2eAuthorLd extends JsonLinkedData implements C2ePersona {
+export default class C2ePublisherLd extends JsonLinkedData implements C2ePersona {
     name: string;
     email: string;
     url: string;

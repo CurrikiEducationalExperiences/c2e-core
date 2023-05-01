@@ -13,6 +13,14 @@ export default class C2eMdGeneralLd extends JsonLinkedData implements C2eMdGener
         this.keywords = keywords;
     }
 
+    setTitle(title: string): void {
+        this.title = title;
+    }
+
+    getTitle(): string {
+        return this.title;
+    }
+
     setDescribtion(description: string): void {
         this.description = description;
     }
@@ -35,11 +43,11 @@ export default class C2eMdGeneralLd extends JsonLinkedData implements C2eMdGener
 
     toJsonLd(): Object {
         return {
-            "@id": this.identifier,
-            "@type": this.type,
-            title: this.title,
-            description: this.description,
-            keywords: this.keywords,
+            "@id": this.getIdentifier(),
+            "@type": this.getType(),
+            title: this.getTitle(),
+            description: this.getDescribtion(),
+            keywords: this.getKeywords(),
         };
     }
 }

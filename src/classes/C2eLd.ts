@@ -1,6 +1,6 @@
 import { C2e } from "../interfaces/C2e";
 import { C2eContainer } from "../interfaces/C2eContainer";
-import { C2eMetadata } from "../interfaces/C2eMetadata";
+import C2eMetadata from "../interfaces/C2eMetadata";
 import JsonLinkedData from "./JsonLinkedData";
 
 class C2eLd extends JsonLinkedData implements C2e {
@@ -41,9 +41,9 @@ class C2eLd extends JsonLinkedData implements C2e {
     
     toJsonLd(): Object {
         return {
-            "@id": this.identifier,
-            "@type": this.type,
-            name: this.name,
+            "@id": this.getIdentifier(),
+            "@type": this.getType(),
+            name: this.getName(),
             c2eMetadata: this.c2eMetadata.toJsonLd(),
         };
     }
