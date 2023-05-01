@@ -26,8 +26,11 @@ class JsonLinkedData implements JsonLd {
         return this.type;
     }
 
-    toJsonLd(): string {
-        return JSON.stringify(this);
+    toJsonLd(): Object {
+        return {
+            "@id": this.identifier,
+            "@type": this.type,
+        };
     }
 }
 

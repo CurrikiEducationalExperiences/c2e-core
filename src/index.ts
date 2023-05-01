@@ -55,8 +55,10 @@ const C2eMetadata = new C2eMetadataLd('c2ens:c2eid-xxx/metadata', 'sdons:Dataset
 
 // ==== Create C2E ====
 const c2e = new C2eLd('c2ens:c2eid-xxx', 'sdons:CreativeWork', 'my-project-c2e', C2eMetadata , C2eContainer);
+console.log(c2e.toJsonLd());
+ 
 //C2eMetadata.toJsonLd(); // To get JSON-LD for 'Manifest' file
 
 
-console.log("RUNNING C2E Application");
-console.log(JSON.stringify(c2e, null, '\t'));
+// console.log("RUNNING C2E Application");
+// console.log(JSON.stringify(c2e, null, '\t'));

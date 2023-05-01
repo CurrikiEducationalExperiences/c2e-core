@@ -39,6 +39,14 @@ class C2eLd extends JsonLinkedData implements C2e {
         return this.c2eContainer;
     }
     
+    toJsonLd(): Object {
+        return {
+            "@id": this.identifier,
+            "@type": this.type,
+            name: this.name,
+            c2eMetadata: this.c2eMetadata.toJsonLd(),
+        };
+    }
 }
 
 export default C2eLd;
