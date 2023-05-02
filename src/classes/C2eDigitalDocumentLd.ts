@@ -1,17 +1,19 @@
 import C2eDigitalDocument from "../interfaces/C2eDigitalDocument";
 import JsonLinkedData from "./JsonLinkedData";
+
 class C2eDigitalDocumentLd extends JsonLinkedData implements C2eDigitalDocument {
     url: string;
     fileFormate: string;
 
-    constructor(identifier: string, type: string, url: string, fileFormate: string) {
-        super(identifier, type);
-        this.url = url;
+    constructor(c2eId: string, type: string, url: string, fileFormate: string) {
+        const identifierUri = 'c2ens:c2eid-' + c2eId + '/resources/' + url;
+        super(identifierUri, type);
+        this.url = '/resources/' + url;
         this.fileFormate = fileFormate;
     }
 
     setUrl(url: string): void {
-        this.url = url;
+        this.url = '/resources/' + url;
     }
 
     getUrl(): string {

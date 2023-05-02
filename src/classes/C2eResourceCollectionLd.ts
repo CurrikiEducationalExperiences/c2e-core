@@ -9,8 +9,9 @@ export default class C2eResourceCollectionLd extends JsonLinkedData implements C
       super(identifier, type);
     }
     
-    addC2eResource(c2eDigitalDocument: C2eDigitalDocument): void {
+    addC2eResource(c2eDigitalDocument: C2eDigitalDocument): C2eDigitalDocument {
       this.c2eResources.push(c2eDigitalDocument);
+      return c2eDigitalDocument;
     }
   
     removeC2eResource(c2eDigitalDocument: C2eDigitalDocument): void {
