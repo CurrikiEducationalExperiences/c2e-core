@@ -5,24 +5,24 @@ import C2ePersona from "./C2ePersona";
 import JsonLd from "./JsonLd";
 
 export default interface C2eMetadata extends JsonLd {
-    schemaVersion: string;
-    general: C2eMdGeneral;
-    author: C2ePersona;
-    copyright: C2eMdCopyright;
+    schemaVersion: string | undefined;
+    general: C2eMdGeneral | undefined;
+    author: C2ePersona | undefined;
+    copyright: C2eMdCopyright | undefined;
     publisher: C2ePersona | undefined;
     lifecycle: C2eMdLifecycleLd | undefined;
 
     setSchemaVersion(schemaVersion: string): void;
-    getSchemaVersion(): string;
+    getSchemaVersion(): string | undefined;
     
     setC2eMdGeneralLd(general: C2eMdGeneral): void;
-    getC2eMdGeneralLd(): C2eMdGeneral;
+    getC2eMdGeneralLd(): C2eMdGeneral | undefined;
 
     setC2eAuthorLd(author: C2ePersona): void;
-    getC2eAuthorLd(): C2ePersona;
+    getC2eAuthorLd(): C2ePersona | undefined;
 
     setC2eMdCopyrightLd(copyrights: C2eMdCopyright): void;
-    getC2eMdCopyrightLd(): C2eMdCopyright;
+    getC2eMdCopyrightLd(): C2eMdCopyright | undefined;
     
     setC2ePublisherLd(publisher: C2ePersona): void;
     getC2ePublisherLd(): C2ePersona | undefined;

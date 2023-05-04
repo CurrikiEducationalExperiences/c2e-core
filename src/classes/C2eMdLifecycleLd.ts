@@ -5,8 +5,9 @@ export default class C2eMdLifecycleLd extends JsonLinkedData implements C2eMdLif
     version: string;
     releaseStatus: string;
 
-    constructor(identifier: string, typ: string, version: string, releaseStatus: string) {
-        super(identifier, typ);
+    constructor(c2eId: string, type: string, version: string, releaseStatus: string) {
+        const identifier = 'c2ens:c2eid-' + c2eId + '/metadata/lifecycle';
+        super(identifier, type);
         this.version = version;
         this.releaseStatus = releaseStatus;
     }

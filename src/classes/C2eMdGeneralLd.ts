@@ -6,8 +6,9 @@ export default class C2eMdGeneralLd extends JsonLinkedData implements C2eMdGener
     description: string;
     keywords: Array<string>;
 
-    constructor(identifier: string, typ: string, title: string, description: string, keywords: Array<string>) {
-        super(identifier, typ);
+    constructor(c2eId: string, type: string, title: string, description: string, keywords: Array<string>) {
+        const identifier = 'c2ens:c2eid-' + c2eId + '/metadata/general';
+        super(identifier, type);
         this.title = title;
         this.description = description;
         this.keywords = keywords;

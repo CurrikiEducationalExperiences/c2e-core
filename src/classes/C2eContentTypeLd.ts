@@ -1,7 +1,7 @@
 import C2eContentType from "../interfaces/C2eContentType";
 import C2eContentTypeAttribute from "../interfaces/C2eContentTypeAttribute";
 import JsonLinkedData from "./JsonLinkedData";
-import { C2E_DATASET_TYPE } from "../constants";
+import { C2E_CREATIVE_WORK_TYPE } from "../constants";
 
 class C2eContentTypeLd extends JsonLinkedData implements C2eContentType {
     attributes: Array<C2eContentTypeAttribute>;
@@ -9,7 +9,7 @@ class C2eContentTypeLd extends JsonLinkedData implements C2eContentType {
 
     constructor (c2eId: string, name: string, attributes: Array<C2eContentTypeAttribute>, relation?: string | undefined) {
         const identifier = 'c2ens:c2eid-' + c2eId + '/content-type/' + name;
-        super(identifier, C2E_DATASET_TYPE);
+        super(identifier, C2E_CREATIVE_WORK_TYPE);
         this.attributes = attributes;
         this.relation = relation;
     }

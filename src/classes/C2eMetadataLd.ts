@@ -7,15 +7,16 @@ import C2ePersona from "../interfaces/C2ePersona";
 import JsonLinkedData from "./JsonLinkedData";
 
 class C2eMetadataLd extends JsonLinkedData implements C2eMetadata {
-    schemaVersion: string;
-    general: C2eMdGeneral;
-    author: C2ePersona;
-    copyright: C2eMdCopyright;
+    schemaVersion: string | undefined;
+    general: C2eMdGeneral | undefined;
+    author: C2ePersona | undefined;
+    copyright: C2eMdCopyright | undefined;
     publisher: C2ePersona | undefined;
     lifecycle: C2eMdLifecycleLd | undefined;
     
-    constructor (identifier: string, typ: string, general: C2eMdGeneral, author: C2ePersona, copyright: C2eMdCopyright, schemaVersion: string = 'v1.0', publisher: C2ePersona | undefined = undefined, lifecycle: C2eMdLifecycleLd | undefined = undefined) {
-        super(identifier, typ);
+    constructor (c2eId: string, type: string, general?: C2eMdGeneral | undefined, author?: C2ePersona | undefined, copyright?: C2eMdCopyright | undefined, schemaVersion?: string | undefined, publisher?: C2ePersona | undefined, lifecycle?: C2eMdLifecycleLd | undefined) {
+        const identifier = 'c2ens:c2eid-' + c2eId + '/metadata';
+        super(identifier, type);
         this.schemaVersion = schemaVersion;
         this.general = general;
         this.author = author;
@@ -27,7 +28,8 @@ class C2eMetadataLd extends JsonLinkedData implements C2eMetadata {
     setSchemaVersion(schemaVersion: string): void {
         this.schemaVersion = schemaVersion;
     }
-    getSchemaVersion(): string {
+    
+    getSchemaVersion(): string | undefined {
         return this.schemaVersion;
     }
 
@@ -35,21 +37,22 @@ class C2eMetadataLd extends JsonLinkedData implements C2eMetadata {
     setC2eMdGeneralLd(general: C2eMdGeneral): void {
         this.general = general;   
     }
-    getC2eMdGeneralLd(): C2eMdGeneral {
+
+    getC2eMdGeneralLd(): C2eMdGeneral | undefined {
         return this.general;
     }
     
     setC2eAuthorLd(author: C2ePersona): void {
         this.author = author;
     }
-    getC2eAuthorLd(): C2ePersona {
+    getC2eAuthorLd(): C2ePersona | undefined{
         return this.author;
     }
 
     setC2eMdCopyrightLd(copyright: C2eMdCopyright): void {
         this.copyright = copyright;
     }
-    getC2eMdCopyrightLd(): C2eMdCopyright {
+    getC2eMdCopyrightLd(): C2eMdCopyright | undefined{
         return this.copyright
     }
 
@@ -75,11 +78,11 @@ class C2eMetadataLd extends JsonLinkedData implements C2eMetadata {
             "@id": this.getIdentifier(),
             "@type": this.getType(),
             schemaVersion: this.getSchemaVersion(),
-            general: this.getC2eMdGeneralLd().toJsonLd(),
-            author: this.getC2eAuthorLd().toJsonLd(),
+            general: this.getC2eMdGeneralLd()?.toJsonLd(),
+            author: this.getC2eAuthorLd()?.toJsonLd(),
             publisher: publisherJsonLd,
             lifecycle: lifecycle,
-            copyright: this.getC2eMdCopyrightLd().toJsonLd(),
+            copyright: this.getC2eMdCopyrightLd()?.toJsonLd(),
         };
 
         if (publisherJsonLd === undefined) {

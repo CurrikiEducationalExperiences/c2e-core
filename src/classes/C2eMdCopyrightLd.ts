@@ -9,8 +9,9 @@ export default class C2eMdCopyrightLd extends JsonLinkedData implements C2eMdCop
     copyrightNotice: string;
     copyrightYear: string;
 
-    constructor (identifier: string, typ: string, license: C2eDigitalDocument, copyrightHolder: C2ePersona, copyrightNotice: string, copyrightYear: string) {
-        super(identifier, typ);
+    constructor (c2eId: string, type: string, license: C2eDigitalDocument, copyrightHolder: C2ePersona, copyrightNotice: string, copyrightYear: string) {
+        const identifier = 'c2ens:c2eid-' + c2eId + '/metadata/copyright';
+        super(identifier, type);
         this.license = license;
         this.copyrightHolder = copyrightHolder;
         this.copyrightNotice = copyrightNotice;

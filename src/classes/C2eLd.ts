@@ -4,23 +4,14 @@ import C2eMetadata from "../interfaces/C2eMetadata";
 import JsonLinkedData from "./JsonLinkedData";
 
 class C2eLd extends JsonLinkedData implements C2e {
-    name: string;
-    c2eMetadata: C2eMetadata;
-    c2eContainer: C2eContainer;
+    c2eMetadata: C2eMetadata | undefined;
+    c2eContainer: C2eContainer | undefined;
 
-    constructor(identifier: string, typ: string, name: string, c2eMetadata: C2eMetadata, c2eContainer: C2eContainer) {
-        super(identifier, typ);
-        this.name = name;
+    constructor(c2eId: string, type: string, c2eMetadata?: C2eMetadata | undefined, c2eContainer?: C2eContainer | undefined) {
+        const identifier = 'c2ens:c2eid-' + c2eId;
+        super(identifier, type);
         this.c2eMetadata = c2eMetadata;
         this.c2eContainer = c2eContainer;
-    }
-
-    setName(name: string): void {
-        this.name = name;
-    }
-
-    getName(): string | undefined {
-        return this.name;
     }
 
     setC2eMetadata(c2eMetadata: C2eMetadata): void {
@@ -43,9 +34,8 @@ class C2eLd extends JsonLinkedData implements C2e {
         return {
             "@id": this.getIdentifier(),
             "@type": this.getType(),
-            name: this.getName(),
-            c2eMetadata: this.c2eMetadata.toJsonLd(),
-            c2eContainer: this.c2eContainer.toJsonLd()
+            c2eMetadata: this.c2eMetadata?.toJsonLd(),
+            c2eContainer: this.c2eContainer?.toJsonLd()
         };
     }
 }
