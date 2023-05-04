@@ -1,8 +1,7 @@
-import C2eLd from "./classes/C2eLd";
 import C2eWriter from "./writer/C2eWriter";
 import { STRING_TYPE } from "./constants";
 
-const c2eId = 'AAA';
+const c2eId = '12345';
 const c2eWriter = new C2eWriter(c2eId);
 
 // ==== Define C2E Resources ====
@@ -24,6 +23,7 @@ c2eWriter.createC2eContentType('playlist', [
 c2eWriter.createC2eContentType('activity', [
     {property: "title", type: STRING_TYPE},
     {property: "description", type: STRING_TYPE},
+    {property: "h5pUrl", type: STRING_TYPE},
 ]);
 
 // Make C2e Metadata

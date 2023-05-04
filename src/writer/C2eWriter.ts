@@ -17,6 +17,7 @@ import C2eMdCopyrightLd from "../classes/C2eMdCopyrightLd";
 import C2eMdLifecycleLd from "../classes/C2eMdLifecycleLd";
 import C2eMetadataLd from "../classes/C2eMetadataLd";
 import C2eLd from "../classes/C2eLd";
+import C2eContentsLd from "../classes/C2eContentsLd";
 
 
 export default class C2eWriter {
@@ -25,6 +26,7 @@ export default class C2eWriter {
     private c2eResourcesToCreate: Array<{sourceFilePath: string, c2eResource: C2eDigitalDocument}>;
     private c2eContentTypeCollectionLd: C2eContentTypeCollectionLd;
     private c2eMetadata: C2eMetadataLd;
+    private c2eContents: C2eDigitalDocument;
     private c2e: C2eLd;
 
     constructor(c2eId: string) {
@@ -34,6 +36,7 @@ export default class C2eWriter {
         this.c2eContentTypeCollectionLd = new C2eContentTypeCollectionLd(C2E_CONTENT_TYPE_COLLECTION_ID, C2E_COLLECTION_TYPE);
         this.c2eMetadata = new C2eMetadataLd(this.c2eId, C2E_DATASET_TYPE);
         this.c2e = new C2eLd(this.c2eId, C2E_CREATIVE_WORK_TYPE);
+        this.c2eContents = new C2eContentsLd(this.c2eId, C2E_DIGITAL_DOCUMENT_TYPE, 'contents.json', 'application/json');
     }
 
     createC2e() {
@@ -95,7 +98,7 @@ export default class C2eWriter {
     }
 
     getContainer() {
-        const c2eContainer = new C2eContainerLd(this.getResourceCollection(), this.getc2eContentTypeCollection(), this.getReaderSourceCode());
+        const c2eContainer = new C2eContainerLd(this.getResourceCollection(), this.getc2eContentTypeCollection(), this.getReaderSourceCode(), this.getC2eContents());
         return c2eContainer;
     }
 
@@ -109,6 +112,10 @@ export default class C2eWriter {
 
     getMetadata(): C2eMetadataLd {
         return this.c2eMetadata;
+    }
+
+    getC2eContents(): C2eDigitalDocument {
+        return this.c2eContents;
     }
 
     getC2e(): C2eLd {
