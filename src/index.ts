@@ -10,21 +10,25 @@ c2eWriter.createC2eResource('src/resources/profile.jpg', 'profile.jpg', 'image/j
 
 
 // Make C2e content types
-c2eWriter.createC2eContentType('project', [
+c2eWriter.defineC2eContentType('Project', [
     {property: "title", type: STRING_TYPE}, 
     {property: "description", type: STRING_TYPE}, 
 ]);
 
-c2eWriter.createC2eContentType('playlist', [
+c2eWriter.defineC2eContentType('Playlist', [
     {property: "title", type: STRING_TYPE}, 
     {property: "description", type: STRING_TYPE}, 
 ]);
 
-c2eWriter.createC2eContentType('activity', [
+c2eWriter.defineC2eContentType('Activity', [
     {property: "title", type: STRING_TYPE},
     {property: "description", type: STRING_TYPE},
     {property: "h5pUrl", type: STRING_TYPE},
 ]);
+
+c2eWriter.createC2eContent('Project', {title: 'My Project', description: 'about my project'});
+c2eWriter.createC2eContent('Project', {title: 'My Project 1', description: 'about my project 1'});
+// c2eWriter.createC2eContent('Project', {description: 'about my project 2'});
 
 // Make C2e Metadata
 c2eWriter.createC2eMetadata({
@@ -63,4 +67,7 @@ c2eWriter.createC2eMetadata({
 c2eWriter.createC2e();
 
 console.log("RUNNING C2E Application");
+console.log("<<< Manifest c2e.json >>>");
 console.log(JSON.stringify(c2eWriter.getC2e().toJsonLd(), null, '\t'));
+console.log("<<< contents.json >>>");
+console.log(JSON.stringify(c2eWriter.getC2eContents().toJsonLd(), null, '\t'));

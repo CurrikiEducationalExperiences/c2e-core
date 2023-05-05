@@ -6,6 +6,7 @@ interface C2eContentType extends JsonLd {
 
     addAttribute(c2eContentTypeAttribute: C2eContentTypeAttribute): void;
     removeAttributes(c2eContentTypeAttribute: C2eContentTypeAttribute): void;
+    getAttributes(): Array<C2eContentTypeAttribute>;
 }
 
 export default C2eContentType;

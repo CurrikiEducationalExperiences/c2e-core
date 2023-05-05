@@ -18,7 +18,8 @@ import C2eMdLifecycleLd from "../classes/C2eMdLifecycleLd";
 import C2eMetadataLd from "../classes/C2eMetadataLd";
 import C2eLd from "../classes/C2eLd";
 import C2eContentCatalogLd from "../classes/C2eContentCatalogLd";
-
+import C2eContentDocumentLd from "../classes/C2eContentDocumentLd";
+import C2eContentsCollectionLd from "../classes/C2eContentsCollectionLd";
 
 export default class C2eWriter {
     private c2eId: string;
@@ -27,7 +28,11 @@ export default class C2eWriter {
     private c2eContentTypeCollectionLd: C2eContentTypeCollectionLd;
     private c2eMetadata: C2eMetadataLd;
     private c2eContentCatalog: C2eDigitalDocument;
+    // private c2eContents: Array<C2eDigitalDocument> = [];
+    private c2eContentsCollectionLd: C2eContentsCollectionLd;
     private c2e: C2eLd;
+    private ok: boolean = true;
+    private errors: Array<string> = [];
 
     constructor(c2eId: string) {
         this.c2eId = c2eId;
@@ -36,12 +41,18 @@ export default class C2eWriter {
         this.c2eContentTypeCollectionLd = new C2eContentTypeCollectionLd(C2E_CONTENT_TYPE_COLLECTION_ID, C2E_COLLECTION_TYPE);
         this.c2eMetadata = new C2eMetadataLd(this.c2eId, C2E_DATASET_TYPE);
         this.c2e = new C2eLd(this.c2eId, C2E_CREATIVE_WORK_TYPE);
-        this.c2eContentCatalog = new C2eContentCatalogLd(this.c2eId, C2E_DIGITAL_DOCUMENT_TYPE, 'contents.json', 'application/json');
+        this.c2eContentCatalog = new C2eContentCatalogLd(this.c2eId);
+        this.c2eContentsCollectionLd = new C2eContentsCollectionLd();
     }
 
     createC2e() {
         this.c2e.setC2eMetadata(this.getMetadata());
         this.c2e.setC2eContainer(this.getContainer());
+        if (!this.ok) {
+            this.errors.forEach((error) => {
+                console.error(error);
+            });
+        }
     }
 
     createC2eResource(sourceFilePath: string, targetFilePath: string, MIMEType: string): void {
@@ -60,8 +71,26 @@ export default class C2eWriter {
         }
     }
 
-    createContent(contentType: string): void {
+    createC2eContent(contentTypeName: string, content: Record<string, any>): void {
+        const identifier = 'c2ens:c2eid-' + this.c2eId + '/content-type/' + contentTypeName;
+        const contentTypeArr = this.c2eContentTypeCollectionLd.getC2eContentTypes()?.filter((c2eContentType) => c2eContentType.getIdentifier() === identifier);
+        const contentType = contentTypeArr?.length && contentTypeArr?.length > 0 ? contentTypeArr[0] : null;
+        const contentTypeAttributes = contentType?.getAttributes().map(attribute => attribute.getName());
+
+        if (contentType === null) {
+            this.ok = false;
+            this.errors.push('"' + contentTypeName + '" Content Type not found while creating content!');
+        }
         
+        if (typeof content === "object" && (contentTypeAttributes ? contentTypeAttributes?.length : 0) > 0 && Object.keys(content).length > 0 && JSON.stringify(Object.keys(content)) === JSON.stringify(contentTypeAttributes)) {
+            const firstVal = content[contentTypeAttributes ? contentTypeAttributes[0] : 0];
+            const firstValAsKey = firstVal.toLowerCase().split(' ').join('-');
+            this.c2eContentsCollectionLd.addC2eContent( new C2eContentDocumentLd(this.c2eId, contentTypeName, firstValAsKey + '.json', 'application/json') );
+                    
+        } else {
+            this.ok = false;
+            this.errors.push('Invalid content type "' + contentTypeName + '" or invalid content "fields". ' + JSON.stringify(content));
+        }
     }
 
     createC2eMetadata(metadata: 
@@ -124,5 +153,9 @@ export default class C2eWriter {
 
     getC2e(): C2eLd {
         return this.c2e;
+    }
+
+    getC2eContents(): C2eContentsCollectionLd {
+        return this.c2eContentsCollectionLd;
     }
 }
