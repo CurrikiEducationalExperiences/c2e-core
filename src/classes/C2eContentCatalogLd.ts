@@ -2,7 +2,7 @@ import C2eDigitalDocument from "../interfaces/C2eDigitalDocument";
 import JsonLinkedData from "./JsonLinkedData";
 import {C2E_DATA_CATALOG_TYPE} from "../constants";
 
-class C2eContentsLd extends JsonLinkedData implements C2eDigitalDocument {
+class C2eContentCatalogLd extends JsonLinkedData implements C2eDigitalDocument {
     url: string;
     fileFormate: string;
 
@@ -43,4 +43,4 @@ class C2eContentsLd extends JsonLinkedData implements C2eDigitalDocument {
     }
 }
 
-export default C2eContentsLd;
+export default C2eContentCatalogLd;
