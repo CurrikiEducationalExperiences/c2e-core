@@ -10,6 +10,7 @@ export const C2E_DATASET_TYPE = 'sdons:Dataset';
 export const C2E_CREATIVE_WORK_TYPE = 'sdons:CreativeWork';
 export const C2E_DATA_CATALOG_TYPE = 'sdons:DataCatalog';
 export const STRING_TYPE = 'xsd:string'; // https://www.w3.org/TR/xmlschema-2/#string
+export const INTEGER_TYPE = 'xsd:integer'; // https://www.w3.org/TR/xmlschema-2/#string
 export const BOOLEAN_TYPE = 'xsd:boolean';
 export const DECIMAL_TYPE = 'xsd:decimal';
 export const FLOAT_TYPE = 'xsd:float';

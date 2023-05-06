@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "c2e" : "node ./built/index.js",
+    "c2e" : "node ./c2e-core/index.js",
     "build" : "npx tsc"
   },
   "repository": {

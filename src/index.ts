@@ -1,7 +1,7 @@
 import C2eWriter from "./writer/C2eWriter";
-import { STRING_TYPE } from "./constants";
+import { INTEGER_TYPE, STRING_TYPE } from "./constants";
 
-const c2eId = '12345';
+const c2eId = '123456';
 const c2eWriter = new C2eWriter(c2eId);
 
 // ==== Define C2E Resources ====
@@ -11,6 +11,7 @@ c2eWriter.createC2eResource('src/resources/profile.jpg', 'profile.jpg', 'image/j
 
 // Make C2e content types
 c2eWriter.defineC2eContentType('Project', [
+    {property: "id", type: INTEGER_TYPE}, 
     {property: "title", type: STRING_TYPE}, 
     {property: "description", type: STRING_TYPE}, 
 ]);
@@ -23,11 +24,22 @@ c2eWriter.defineC2eContentType('Playlist', [
 c2eWriter.defineC2eContentType('Activity', [
     {property: "title", type: STRING_TYPE},
     {property: "description", type: STRING_TYPE},
-    {property: "h5pUrl", type: STRING_TYPE},
+    {property: "h5pSettingsJson", type: STRING_TYPE},
 ]);
 
-c2eWriter.createC2eContent('Project', {title: 'My Project', description: 'about my project'});
-c2eWriter.createC2eContent('Project', {title: 'My Project 1', description: 'about my project 1'});
+const project_1 = c2eWriter.createC2eContent('Project', {id: '1', title: 'My Project', description: 'about my project'});
+const playlist_1 = c2eWriter.createC2eContent('Playlist', {title: 'My Playlist', description: 'about my playlist'});
+playlist_1?.isPartOf(project_1?.getIdentifier()!);
+
+const project_2 = c2eWriter.createC2eContent('Project', {id: '2', title: 'My Project', description: 'about my project 2'});
+const playlist_2 = c2eWriter.createC2eContent('Playlist', {title: 'My Playlist', description: 'about my playlist 2'});
+const h5pSettingsJson = JSON.stringify({settingId: 101, settingName: 'H5P Activity'});
+const activity_2 = c2eWriter.createC2eContent('Activity' , {title: 'My Activity', description: 'about my activity', h5pSettingsJson});
+activity_2?.isPartOf(playlist_2?.getIdentifier()!);
+playlist_2?.isPartOf(project_2?.getIdentifier()!);
+
+
+
 // c2eWriter.createC2eContent('Project', {description: 'about my project 2'});
 
 // Make C2e Metadata
@@ -64,7 +76,12 @@ c2eWriter.createC2eMetadata({
 });
 
 // ==== Create C2E ====
-c2eWriter.createC2e();
+if(!c2eWriter.createC2e()) {
+    c2eWriter.getErrors().forEach((error: string) => {
+        console.log(error);
+    });
+}
+
 
 console.log("RUNNING C2E Application");
 console.log("<<< Manifest c2e.json >>>");
