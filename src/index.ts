@@ -1,12 +1,12 @@
 import C2eWriter from "./writer/C2eWriter";
 import { INTEGER_TYPE, STRING_TYPE } from "./constants";
 
-const c2eId = '123456';
+const c2eId = 'XXXX';
 const c2eWriter = new C2eWriter(c2eId);
 
 // ==== Define C2E Resources ====
-c2eWriter.createC2eResource('src/resources/thumbnail.jpg', 'thumbnail.jpg', 'image/jpeg');
-c2eWriter.createC2eResource('src/resources/profile.jpg', 'profile.jpg', 'image/jpeg');
+c2eWriter.createC2eResource('G:\\c2es\\test-c2e\\thumbnail.jpg', 'thumbnail.jpg', 'image/jpeg');
+c2eWriter.createC2eResource('G:\\c2es\\test-c2e\\profile.jpg', 'profile.jpg', 'image/jpeg');
 
 
 // Make C2e content types
@@ -76,15 +76,10 @@ c2eWriter.createC2eMetadata({
 });
 
 // ==== Create C2E ====
-if(!c2eWriter.createC2e('G:\c2es\\')) {
+if(!c2eWriter.createC2e('G:\\c2es\\')) {
     c2eWriter.getErrors().forEach((error: string) => {
         console.log(error);
     });
 }
 
-
-console.log("RUNNING C2E Application");
-console.log("<<< Manifest c2e.json >>>");
-console.log(JSON.stringify(c2eWriter.getC2e().toJsonLd(), null, '\t'));
-console.log("<<< contents.json >>>");
-console.log(JSON.stringify(c2eWriter.getC2eContents().toJsonLd(), null, '\t'));
+console.log("C2E Writer Exectuted Successfully!");

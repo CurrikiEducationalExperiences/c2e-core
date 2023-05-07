@@ -36,6 +36,10 @@ class C2eContentDocumentLd extends C2eDigitalDocumentLd {
         return this.isPartOfProp;
     }
 
+    getLearningResourceType(): string {
+        return this.learningResourceType;
+    }
+    
     toJsonLd(): Record<string, any> {
         const c2eContentDocument: Record<string, any> = {
             "@id": this.getIdentifier(),
