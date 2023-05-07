@@ -20,6 +20,7 @@ import C2eLd from "../classes/C2eLd";
 import C2eContentCatalogLd from "../classes/C2eContentCatalogLd";
 import C2eContentDocumentLd from "../classes/C2eContentDocumentLd";
 import C2eContentDocumentCollectionLd from "../classes/C2eContentDocumentCollectionLd";
+import PackageCreator from "./PackageCreator";
 
 export default class C2eWriter {
     private c2eId: string;
@@ -45,11 +46,13 @@ export default class C2eWriter {
         this.c2eContentDocumentCollectionLd = new C2eContentDocumentCollectionLd();
     }
 
-    createC2e(): Boolean {
+    createC2e(c2ePath: string = ''): Boolean {
         this.c2e.setC2eMetadata(this.getMetadata());
         this.c2e.setC2eContainer(this.getContainer());
         if (this.ok) {
-            console.log('Do Copy ...');
+            const packageCreator = new PackageCreator(this.c2eId, c2ePath);
+            packageCreator.createc2eJsonLd(this.getC2e().toJsonLd());
+            console.log('Do Copy ...', packageCreator.test());
         }
         return this.ok;
     }

@@ -76,7 +76,7 @@ c2eWriter.createC2eMetadata({
 });
 
 // ==== Create C2E ====
-if(!c2eWriter.createC2e()) {
+if(!c2eWriter.createC2e('G:\c2es\\')) {
     c2eWriter.getErrors().forEach((error: string) => {
         console.log(error);
     });
