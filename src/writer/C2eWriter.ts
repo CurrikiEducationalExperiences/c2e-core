@@ -51,7 +51,7 @@ export default class C2eWriter {
         this.c2e.setC2eContainer(this.getContainer());
         if (this.ok) {
             const c2ePackageCreator = new C2ePackageCreator(this.c2eId, c2ePath);
-            c2ePackageCreator.createC2ePackage(this.getC2e().toJsonLd(), this.c2eResourcesToCreate, this.getC2eContents(), this.c2eContentsToCreate);
+            c2ePackageCreator.createC2ePackage(this.getC2e().toJsonLd(), this.c2eResourcesToCreate, this.getC2eContents(), this.c2eContentsToCreate, this.getC2e());
         }
         return this.ok;
     }

@@ -5,6 +5,8 @@ export default interface C2eMdGeneral extends JsonLd {
     description: string;
     keywords: Array<string>;
 
+    setTitle(title: string): void;
+    getTitle(): string | undefined;
     setDescribtion(description: string): void;
     getDescribtion(): string | undefined;
     addKeyword(keyword: string): void;

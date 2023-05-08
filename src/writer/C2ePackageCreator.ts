@@ -6,6 +6,8 @@ import C2eDigitalDocument from '../interfaces/C2eDigitalDocument';
 import C2eContentDocumentLd from '../classes/C2eContentDocumentLd';
 import C2eContentDocumentCollectionLd from '../classes/C2eContentDocumentCollectionLd';
 import C2eContentLd from '../classes/C2eContentLd';
+import { c2eSourceHtmlTemplate, c2eSourceJsTemplate } from "./C2eSourceCodeTemplate";
+import C2eLd from '../classes/C2eLd';
 
 class C2ePackageCreator {
     private c2dId: string;
@@ -39,6 +41,7 @@ class C2ePackageCreator {
             fs.mkdirSync(this.c2eDirectory);
             fs.mkdirSync(this.c2eDirectory + '/resources');
             fs.mkdirSync(this.c2eDirectory + '/content');
+            fs.mkdirSync(this.c2eDirectory + '/source');
             this.c2eDirectoryCreated = true;
             return true;
         } else {
@@ -49,7 +52,7 @@ class C2ePackageCreator {
         }
     }
 
-    public createC2ePackage(c2eJsonLd: any, resourcesToCopy: Array<{sourceFilePath: string, c2eResource: C2eDigitalDocument}>, c2eContents: C2eContentDocumentCollectionLd, c2eContentsToCreate: Array<{c2eContent: Record<string, any> , c2eContentDocument: C2eContentDocumentLd | undefined}> = []): boolean {
+    public createC2ePackage(c2eJsonLd: any, resourcesToCopy: Array<{sourceFilePath: string, c2eResource: C2eDigitalDocument}>, c2eContents: C2eContentDocumentCollectionLd, c2eContentsToCreate: Array<{c2eContent: Record<string, any> , c2eContentDocument: C2eContentDocumentLd | undefined}> = [], c2eLd: C2eLd): boolean {
         if(this.c2eDirectoryCreated) {
             this.c2eJsonLd = c2eJsonLd;
             this.c2eJsonLdString = JSON.stringify(this.c2eJsonLd, null, 4);
@@ -58,6 +61,8 @@ class C2ePackageCreator {
             this.processC2eResourcesToCreate(resourcesToCopy);
             this.processC2eContentsToCreate(c2eContentsToCreate);
             fs.writeFileSync(path.join(this.c2eDirectory, '/content/contents.json'), c2eContentsLdString);
+            fs.writeFileSync(path.join(this.c2eDirectory, '/source/index.html'), c2eSourceHtmlTemplate(c2eLd));
+            fs.writeFileSync(path.join(this.c2eDirectory, '/source/index.js'), c2eSourceJsTemplate(c2eLd));
             this.c2eJsonLdFileCreated = true;
             return true;
         } else {

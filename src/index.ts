@@ -1,7 +1,7 @@
 import C2eWriter from "./writer/C2eWriter";
 import { INTEGER_TYPE, STRING_TYPE } from "./constants";
 
-const c2eId = 'XXXX';
+const c2eId = '12345';
 const c2eWriter = new C2eWriter(c2eId);
 
 // ==== Define C2E Resources ====
@@ -27,6 +27,7 @@ c2eWriter.defineC2eContentType('Activity', [
     {property: "h5pSettingsJson", type: STRING_TYPE},
 ]);
 
+// Make C2e contents and relations according to the defined content types
 const project_1 = c2eWriter.createC2eContent('Project', {id: '1', title: 'My Project', description: 'about my project'});
 const playlist_1 = c2eWriter.createC2eContent('Playlist', {title: 'My Playlist', description: 'about my playlist'});
 playlist_1?.isPartOf(project_1?.getIdentifier()!);
@@ -37,10 +38,6 @@ const h5pSettingsJson = JSON.stringify({settingId: 101, settingName: 'H5P Activi
 const activity_2 = c2eWriter.createC2eContent('Activity' , {title: 'My Activity', description: 'about my activity', h5pSettingsJson});
 activity_2?.isPartOf(playlist_2?.getIdentifier()!);
 playlist_2?.isPartOf(project_2?.getIdentifier()!);
-
-
-
-// c2eWriter.createC2eContent('Project', {description: 'about my project 2'});
 
 // Make C2e Metadata
 c2eWriter.createC2eMetadata({
