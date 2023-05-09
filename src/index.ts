@@ -10,34 +10,41 @@ c2eWriter.createC2eResource('G:\\c2es\\test-c2e\\profile.jpg', 'profile.jpg', 'i
 
 
 // Make C2e content types
+// Define Project
 c2eWriter.defineC2eContentType('Project', [
     {property: "id", type: INTEGER_TYPE}, 
     {property: "title", type: STRING_TYPE}, 
     {property: "description", type: STRING_TYPE}, 
 ]);
 
+// Define Playlist
 c2eWriter.defineC2eContentType('Playlist', [
     {property: "title", type: STRING_TYPE}, 
     {property: "description", type: STRING_TYPE}, 
 ]);
 
+// Define Activity
 c2eWriter.defineC2eContentType('Activity', [
     {property: "title", type: STRING_TYPE},
     {property: "description", type: STRING_TYPE},
     {property: "h5pSettingsJson", type: STRING_TYPE},
 ]);
 
+
 // Make C2e contents and relations according to the defined content types
+// Make Project 1
 const project_1 = c2eWriter.createC2eContent('Project', {id: '1', title: 'My Project', description: 'about my project'});
 const playlist_1 = c2eWriter.createC2eContent('Playlist', {title: 'My Playlist', description: 'about my playlist'});
 playlist_1?.isPartOf(project_1?.getIdentifier()!);
 
+// Make Project 2
 const project_2 = c2eWriter.createC2eContent('Project', {id: '2', title: 'My Project', description: 'about my project 2'});
 const playlist_2 = c2eWriter.createC2eContent('Playlist', {title: 'My Playlist', description: 'about my playlist 2'});
 const h5pSettingsJson = JSON.stringify({settingId: 101, settingName: 'H5P Activity'});
 const activity_2 = c2eWriter.createC2eContent('Activity' , {title: 'My Activity', description: 'about my activity', h5pSettingsJson});
 activity_2?.isPartOf(playlist_2?.getIdentifier()!);
 playlist_2?.isPartOf(project_2?.getIdentifier()!);
+
 
 // Make C2e Metadata
 c2eWriter.createC2eMetadata({
