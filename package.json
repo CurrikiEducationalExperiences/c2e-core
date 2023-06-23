@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "C2E core library",
   "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "c2e": "node ./c2e-core/index.js",
+    "c2e2": "node ./c2e-core/index2.js",
     "build": "npx tsc"
   },
   "repository": {
@@ -24,5 +26,8 @@
   "devDependencies": {
     "@types/node": "^20.1.0",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.10"
   }
 }

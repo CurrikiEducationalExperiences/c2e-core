@@ -4,23 +4,18 @@ import { INTEGER_TYPE, STRING_TYPE } from "./constants";
 const c2eId = '12345';
 const c2eWriter = new C2eWriter(c2eId);
 
-// ==== Define C2E Resources ====
-c2eWriter.createC2eResource('G:\\c2es\\test-c2e\\thumbnail.jpg', 'thumbnail.jpg', 'image/jpeg');
-c2eWriter.createC2eResource('G:\\c2es\\test-c2e\\profile.jpg', 'profile.jpg', 'image/jpeg');
-
-
 // Make C2e content types
 // Define Project
 c2eWriter.defineC2eContentType('Project', [
-    {property: "id", type: INTEGER_TYPE}, 
-    {property: "title", type: STRING_TYPE}, 
-    {property: "description", type: STRING_TYPE}, 
+    {property: "id", type: INTEGER_TYPE},
+    {property: "title", type: STRING_TYPE},
+    {property: "description", type: STRING_TYPE},
 ]);
 
 // Define Playlist
 c2eWriter.defineC2eContentType('Playlist', [
-    {property: "title", type: STRING_TYPE}, 
-    {property: "description", type: STRING_TYPE}, 
+    {property: "title", type: STRING_TYPE},
+    {property: "description", type: STRING_TYPE},
 ]);
 
 // Define Activity
@@ -30,6 +25,9 @@ c2eWriter.defineC2eContentType('Activity', [
     {property: "h5pSettingsJson", type: STRING_TYPE},
 ]);
 
+// ==== Define C2E Resources ====
+c2eWriter.createC2eResource('F:\\curriki studio\\c2e\\c2e-output\\resources\\pic.jpg', 'pic1.jpg', 'image/jpeg');
+c2eWriter.createC2eResource('F:\\curriki studio\\c2e\\c2e-output\\resources\\pic2.jpg', 'pic2.jpg', 'image/jpeg');
 
 // Make C2e contents and relations according to the defined content types
 // Make Project 1
@@ -55,8 +53,8 @@ c2eWriter.createC2eMetadata({
         keywords: ["Education", "Curriculum", "Curriki", "Project"]
     },
     author: {
-        name: 'Waqar Muneer', 
-        email: 'waqar@curriki.org', 
+        name: 'Waqar Muneer',
+        email: 'waqar@curriki.org',
         url: 'https://github.com/i-do-dev'
     },
     publisher: {
@@ -69,8 +67,8 @@ c2eWriter.createC2eMetadata({
         type: 'text/plain'
     },
     copyrightHolder: {
-        name: 'Waqar Muneer', 
-        email: 'waqar@curriki.org', 
+        name: 'Waqar Muneer',
+        email: 'waqar@curriki.org',
         url: 'https://github.com/i-do-dev'
     },
     copyrightNote: 'This C2E has all rights to Waqar Muneer',
@@ -80,7 +78,7 @@ c2eWriter.createC2eMetadata({
 });
 
 // ==== Create C2E ====
-if(!c2eWriter.createC2e('G:\\c2es\\')) {
+if(!c2eWriter.createC2e('F:\\curriki studio\\\c2e\\\c2e-output1\\')) {
     c2eWriter.getErrors().forEach((error: string) => {
         console.log(error);
     });
