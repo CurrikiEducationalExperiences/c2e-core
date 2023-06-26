@@ -1,7 +1,7 @@
 import C2eWriter from './writer/C2eWriter';
 import { INTEGER_TYPE, STRING_TYPE } from './constants';
 
-const c2eId = 'mikedemo';
+const c2eId = 'fahaddemo';
 const c2eWriter = new C2eWriter(c2eId);
 
 // Make C2e content types
@@ -31,22 +31,22 @@ c2eWriter.defineC2eContentType('Activity', [
 // extraxt zip files for all paths
 
 const all_paths: any = c2eWriter.c2eExtractZip(
-  'F:\\curriki studio\\c2e\\sample2\\project.zip'
+  'F:\\curriki studio\\c2e\\sample2\\fahad1.zip'
 );
 console.log(all_paths)
 // ==== Define C2E Resources ====
-if (all_paths.allResources) {
-  all_paths.allResources.forEach((element: any) => {
-    c2eWriter.createC2eResource(
-      `F:\\curriki studio\\c2e\\c2e-core\\outputfolder\\${element.replaceAll(
-        '/',
-        '\\'
-      )}`,
-      element.replace(/^.*[\\\/]/, ''),
-      'image/png'
-    );
-  });
-}
+// if (all_paths.allResources) {
+//   all_paths.allResources.forEach((element: any) => {
+//     c2eWriter.createC2eResource(
+//       `F:\\curriki studio\\c2e\\c2e-core\\outputfolder\\${element.replaceAll(
+//         '/',
+//         '\\'
+//       )}`,
+//       element.replace(/^.*[\\\/]/, ''),
+//       'image/png'
+//     );
+//   });
+// }
 
 // check project exist
 if (all_paths.projectMetaData) {

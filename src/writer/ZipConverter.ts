@@ -1,9 +1,10 @@
 var AdmZip = require('adm-zip');
 
 export const ZipConverter = (filePath: any) => {
+
   const zipper = new AdmZip(filePath);
   var zipEntries = zipper.getEntries();
-  zipper.extractAllTo('outputfolder', true);
+  // zipper.extractAllTo('outputfolder', true);
   const allResources: any = [];
   const h5pSettings: any = [];
   let projectMetaData: string = '';
