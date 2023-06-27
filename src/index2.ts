@@ -1,7 +1,7 @@
 import C2eWriter from './writer/C2eWriter';
 import { INTEGER_TYPE, STRING_TYPE } from './constants';
 
-const c2eId = 'fahaddemo';
+const c2eId = '17175';
 const c2eWriter = new C2eWriter(c2eId);
 
 // Make C2e content types
@@ -31,22 +31,27 @@ c2eWriter.defineC2eContentType('Activity', [
 // extraxt zip files for all paths
 
 const all_paths: any = c2eWriter.c2eExtractZip(
-  'F:\\curriki studio\\c2e\\sample2\\fahad1.zip'
+  'D:\\projects\\cur\\C2E\\DEMO\\projects-6499b15ac7a6c.zip'
 );
 console.log(all_paths)
+//console.log('>>>>>>***** ', all_paths.allResources);
+
 // ==== Define C2E Resources ====
-// if (all_paths.allResources) {
-//   all_paths.allResources.forEach((element: any) => {
-//     c2eWriter.createC2eResource(
-//       `F:\\curriki studio\\c2e\\c2e-core\\outputfolder\\${element.replaceAll(
-//         '/',
-//         '\\'
-//       )}`,
-//       element.replace(/^.*[\\\/]/, ''),
-//       'image/png'
-//     );
-//   });
-// }
+if (all_paths.allResources) {
+  all_paths.allResources.forEach((element: any) => {
+    let sourceRoot: any = 'D:\\projects\\cur\\C2E\\DEMO\\projects-6499b15ac7a6c\\';
+    let sourceRs: any = `${element.replaceAll(
+      '/',
+      '\\'
+    )}`;
+    sourceRs = sourceRoot + sourceRs.replaceAll(':', '_').replaceAll('?', '_');
+    c2eWriter.createC2eResource(
+      sourceRs,
+      element.replace(/^.*[\\\/]/, ''),
+      'image/png'
+    );
+  });
+}
 
 // check project exist
 if (all_paths.projectMetaData) {
@@ -87,28 +92,28 @@ if (all_paths.projectMetaData) {
 c2eWriter.createC2eMetadata({
   version: 'v1.0',
   general: {
-    title: 'My Project C2E',
-    description: 'This is CurrikiStudio Project as a C2e',
+    title: 'Area and Surface Area',
+    description: 'Variety of activities of Area and Surface Area.',
     keywords: ['Education', 'Curriculum', 'Curriki', 'Project'],
   },
   author: {
-    name: 'Waqar Muneer',
-    email: 'waqar@curriki.org',
-    url: 'https://github.com/i-do-dev',
+    name: "Caroline Benoist",
+    email: "info@curriki.org",
+    url: "https://c2e.curriki.org"
   },
   publisher: {
-    name: 'Curriki Publisher',
-    email: 'publisher@curriki.org',
-    url: 'https://curriki.org/publisher',
+    name: "Curriki Reference Implementation",
+    email: "info@curriki.org",
+    url: "https://www.currikistudio.org"
   },
   license: {
     file: 'license.txt',
     type: 'text/plain',
   },
   copyrightHolder: {
-    name: 'Waqar Muneer',
-    email: 'waqar@curriki.org',
-    url: 'https://github.com/i-do-dev',
+    name: "Bob",
+    email: "bob@curriki.org",
+    url: "https://curriki.org",
   },
   copyrightNote: 'This C2E has all rights to Waqar Muneer',
   copyrightYear: '2023',
@@ -117,7 +122,7 @@ c2eWriter.createC2eMetadata({
 });
 
 // ==== Create C2E ====
-if (!c2eWriter.createC2e('F:\\curriki studio\\c2e\\c2e-output\\')) {
+if (!c2eWriter.createC2e('D:\\projects\\cur\\C2E\\DEMO\\C2Es')) {
   c2eWriter.getErrors().forEach((error: string) => {
     console.log(error);
   });

@@ -169,12 +169,15 @@ export default class C2eWriter {
       );
       const fileCounter =
         existingFirstVals.length > 0 ? '-' + existingFirstVals.length : '';
-      const fileName =
+      let fileName :any =
         firstVal?.toString().toLowerCase().split(' ').join('-') + fileCounter;
+        let c2eId :any = this.c2eId;
+        c2eId = c2eId.replaceAll('?', '_').replaceAll('’', '_').replaceAll('?', '_').replaceAll('’', '_');
+        fileName = fileName.replaceAll('?', '_').replaceAll('’', '_');
       c2eContentDocument =
         this.c2eContentDocumentCollectionLd.addC2eContentDocument(
           new C2eContentDocumentLd(
-            this.c2eId,
+            c2eId,
             contentTypeName,
             fileName + '.json',
             'application/json'

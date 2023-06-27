@@ -86,7 +86,9 @@ class C2ePackageCreator {
             const c2eContentDocument = c2eContentToCreate.c2eContentDocument;
             if (c2eContentDocument) {
                 const c2eContentLd = new C2eContentLd(c2eContent, c2eContentDocument);
-                fs.writeFileSync( path.join(this.c2eDirectory, c2eContentDocument.getUrl()), JSON.stringify(c2eContentLd.toJsonLd(), null, 4) );
+                let docUrl: any = c2eContentDocument.getUrl();
+                docUrl = docUrl.replaceAll(':', '_').replaceAll('?', '_').replaceAll('’', '_');
+                fs.writeFileSync( path.join(this.c2eDirectory, docUrl), JSON.stringify(c2eContentLd.toJsonLd(), null, 4) );
                 this.createPackageFile();
             }
         });
