@@ -87,7 +87,7 @@ class C2ePackageCreator {
             if (c2eContentDocument) {
                 const c2eContentLd = new C2eContentLd(c2eContent, c2eContentDocument);
                 let docUrl: any = c2eContentDocument.getUrl();
-                docUrl = docUrl.replaceAll(':', '_').replaceAll('?', '_').replaceAll('’', '_');
+                docUrl = docUrl.replaceAll(':', '_').replaceAll('?', '_').replaceAll('’', '_').replaceAll('\'', '_').replaceAll('"', '_');
                 fs.writeFileSync( path.join(this.c2eDirectory, docUrl), JSON.stringify(c2eContentLd.toJsonLd(), null, 4) );
                 this.createPackageFile();
             }

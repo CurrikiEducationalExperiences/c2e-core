@@ -31,27 +31,27 @@ c2eWriter.defineC2eContentType('Activity', [
 // extraxt zip files for all paths
 
 const all_paths: any = c2eWriter.c2eExtractZip(
-  'D:\\projects\\cur\\C2E\\DEMO\\projects-6499b15ac7a6c.zip'
+  '/media/fahadfarrukh/Data Drive/vTeams/Curriki/C2E/Sample/Fahad/Zips/projects-6499b15ac7a6c.zip'
 );
 console.log(all_paths)
 //console.log('>>>>>>***** ', all_paths.allResources);
 
 // ==== Define C2E Resources ====
-if (all_paths.allResources) {
-  all_paths.allResources.forEach((element: any) => {
-    let sourceRoot: any = 'D:\\projects\\cur\\C2E\\DEMO\\projects-6499b15ac7a6c\\';
-    let sourceRs: any = `${element.replaceAll(
-      '/',
-      '\\'
-    )}`;
-    sourceRs = sourceRoot + sourceRs.replaceAll(':', '_').replaceAll('?', '_');
-    c2eWriter.createC2eResource(
-      sourceRs,
-      element.replace(/^.*[\\\/]/, ''),
-      'image/png'
-    );
-  });
-}
+// if (all_paths.allResources) {
+//   all_paths.allResources.forEach((element: any) => {
+//     let sourceRoot: any = '/media/fahadfarrukh/Data Drive/vTeams/Curriki/C2E/Sample/Fahad/Zips/projects-6499b15ac7a6c';
+//     let sourceRs: any = `${element.replaceAll(
+//       '/',
+//       '\\'
+//     )}`;
+//     sourceRs = sourceRoot + sourceRs.replaceAll(':', '_').replaceAll('?', '_').replaceAll('\'', '_').replaceAll('"', '_');
+//     c2eWriter.createC2eResource(
+//       sourceRs,
+//       element.replace(/^.*[\\\/]/, ''),
+//       'image/png'
+//     );
+//   });
+// }
 
 // check project exist
 if (all_paths.projectMetaData) {
@@ -98,7 +98,7 @@ c2eWriter.createC2eMetadata({
   },
   author: {
     name: "Caroline Benoist",
-    email: "info@curriki.org",
+    email: "caroline@curriki.org",
     url: "https://c2e.curriki.org"
   },
   publisher: {
@@ -111,8 +111,8 @@ c2eWriter.createC2eMetadata({
     type: 'text/plain',
   },
   copyrightHolder: {
-    name: "Bob",
-    email: "bob@curriki.org",
+    name: "Caroline Benoist",
+    email: "caroline@curriki.org",
     url: "https://curriki.org",
   },
   copyrightNote: 'This C2E has all rights to Mr Bob',
@@ -122,7 +122,7 @@ c2eWriter.createC2eMetadata({
 });
 
 // ==== Create C2E ====
-if (!c2eWriter.createC2e('D:\\projects\\cur\\C2E\\DEMO\\C2Es')) {
+if (!c2eWriter.createC2e('/media/fahadfarrukh/Data Drive/vTeams/Curriki/C2E/Sample/Fahad/Zips/c2e-output')) {
   c2eWriter.getErrors().forEach((error: string) => {
     console.log(error);
   });

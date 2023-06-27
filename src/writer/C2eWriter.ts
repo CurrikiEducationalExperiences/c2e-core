@@ -172,8 +172,8 @@ export default class C2eWriter {
       let fileName :any =
         firstVal?.toString().toLowerCase().split(' ').join('-') + fileCounter;
         let c2eId :any = this.c2eId;
-        c2eId = c2eId.replaceAll('?', '_').replaceAll('’', '_').replaceAll('?', '_').replaceAll('’', '_');
-        fileName = fileName.replaceAll('?', '_').replaceAll('’', '_');
+        c2eId = c2eId.replaceAll('?', '_').replaceAll('’', '_').replaceAll('\'', '_').replaceAll('"', '_');
+        fileName = fileName.replaceAll('?', '_').replaceAll('’', '_').replaceAll('\'', '_').replaceAll('"', '_').replaceAll(':', '_');
       c2eContentDocument =
         this.c2eContentDocumentCollectionLd.addC2eContentDocument(
           new C2eContentDocumentLd(
