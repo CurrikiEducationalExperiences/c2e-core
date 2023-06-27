@@ -115,7 +115,7 @@ c2eWriter.createC2eMetadata({
     email: "bob@curriki.org",
     url: "https://curriki.org",
   },
-  copyrightNote: 'This C2E has all rights to Waqar Muneer',
+  copyrightNote: 'This C2E has all rights to Mr Bob',
   copyrightYear: '2023',
   codeVersion: 'v1.0',
   codeStatus: 'Beta',
